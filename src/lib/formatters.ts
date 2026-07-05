@@ -1,3 +1,11 @@
+// Shared display formatters.
+//
+// These wrap the browser-native Intl APIs so currency and date formatting stay
+// consistent across the storefront, cart, and order dashboard. Using Intl means
+// we get correct thousands separators and currency symbols without shipping a
+// heavyweight formatting library to the client.
+
+/** Format a numeric amount as a localized currency string (e.g. "$1,299.00"). */
 export function formatPrice(amount: number, currency: string = 'USD'): string {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(amount)
 }
